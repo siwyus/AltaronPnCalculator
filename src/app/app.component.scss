@@ -1,0 +1,27 @@
+$container-padding: 5rem;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - #{2 * $container-padding});
+  align-items: center;
+  padding: $container-padding 0;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+:host::ng-deep {
+  .mat-form-field-infix {
+    padding: .75rem 0;
+  }
+}
+
+.info-container {
+  margin-top: 2rem;
+}
