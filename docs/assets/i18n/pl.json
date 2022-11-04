@@ -1,0 +1,24 @@
+{
+  "skills": {
+    "strength": "Siła",
+    "shielding": "Obrona tarczą",
+    "one-handed": "Broń jednoręczna",
+    "two-handed": "Broń dwuręczna",
+    "distance": "Broń dystansowa",
+    "magic": "Magia",
+    "alchemy": "Alchemia",
+    "agility": "Zręczność"
+  },
+  "professions": {
+    "wizard": "Mag",
+    "warrior": "Wojownik",
+    "scout": "Zwiadowca"
+  },
+  "selectProfession": "Wybierz profesję",
+  "selectSkill": "Wybierz umiejętność",
+  "insertYourSkillLevel": "Wprowadź posiadany poziom umiejętności",
+  "insertSkillLevelYouWant": "Wprowadź pożądany poziom umiejętności",
+  "insertPnAmount": "Wprowadź liczbę posiadanych PNów",
+  "submit": "Zatwierdź",
+  "neededPnAmountInfo": "Potrzebujesz {{ neededPnAmount }} Punktów Nauki, aby awansować z {{ basicSkillLvl }} poziomu na {{ wantedSkillLvl }} poziom {{ skill }}."
+}
