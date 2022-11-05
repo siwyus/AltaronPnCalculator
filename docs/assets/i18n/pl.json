@@ -16,9 +16,9 @@
   },
   "selectProfession": "Wybierz profesję",
   "selectSkill": "Wybierz umiejętność",
-  "insertYourSkillLevel": "Wprowadź posiadany poziom umiejętności",
-  "insertSkillLevelYouWant": "Wprowadź pożądany poziom umiejętności",
-  "insertPnAmount": "Wprowadź liczbę posiadanych PNów",
+  "insertYourSkillLevel": "Posiadany poziom umiejętności",
+  "insertSkillLevelYouWant": "Pożądany poziom umiejętności",
+  "insertPnAmount": "Liczba posiadanych PNów",
   "submit": "Zatwierdź",
   "neededPnAmountInfo": "Potrzebujesz {{ neededPnAmount }} Punktów Nauki, aby awansować z {{ basicSkillLvl }} poziomu na {{ wantedSkillLvl }} poziom {{ skill }}."
 }
