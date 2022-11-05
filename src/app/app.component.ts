@@ -36,11 +36,9 @@ export class AppComponent {
   protected readonly skills: string[] = Object.values(Skill);
   protected readonly form: FormGroup;
 
-  private readonly alchemyPnArray: number[];
 
   constructor(private readonly fb: FormBuilder, private readonly pnAmountService: PnAmountService) {
     this.form = this.initForm();
-    this.alchemyPnArray = this.pnAmountService.alchemyPnAmount;
   }
 
   changeSlider($event: MatSliderChange) {
@@ -59,7 +57,7 @@ export class AppComponent {
     const formValues: FormValues = this.form.getRawValue();
     this.neededPnAmount = 0;
 
-    this.alchemyPnArray
+    this.pnAmountService.magicWizardPnAmount
       .forEach((value: number, index: number): void => {
         if (index + 1 > formValues.basicSkillLvl && index + 1 <= formValues.wantedSkillLvl) {
           this.neededPnAmount += value;

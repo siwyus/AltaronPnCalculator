@@ -10,9 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
+import { environment } from '../environments/environment';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/AltaronPnCalculator/assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, environment.i18prefix, environment.i18suffix);
 }
 
 @NgModule({
