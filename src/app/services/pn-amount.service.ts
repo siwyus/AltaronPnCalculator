@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Skill } from '../enums/skill.enum';
+import { Profession } from '../enums/profession.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +33,10 @@ export class PnAmountService {
   readonly shieldingWarriorPnAmount: number[] = [0, 2];
   readonly shieldingScoutPnAmount: number[] = [0, 2];
 
+  private readonly skillMap: Map<Skill, Map<Profession, number[]> | number[]> = new Map<Skill, Map<Profession, number[]> | number[]>();
+
   constructor() {
+    this.initSkillMap();
     this.initAgilityPnAmount();
     this.initAlchemyPnAmount();
 
@@ -44,6 +49,46 @@ export class PnAmountService {
     this.initScoutStrengthLvlPnAmount();
   }
 
+
+  getProperPnAmountArray(skill: Skill, profession?: Profession): number[] {
+    return profession ? [...(this.skillMap.get(skill) as Map<Profession, number[]>).get(profession)!] : [...this.skillMap.get(skill) as number[]];
+  }
+
+  private initSkillMap(): void {
+    this.skillMap
+      .set(Skill.AGILITY, this.agilityPnAmount)
+      .set(Skill.ALCHEMY, this.alchemyPnAmount)
+      .set(Skill.MAGIC, new Map()
+        .set(Profession.SCOUT, this.magicScoutPnAmount)
+        .set(Profession.WARRIOR, this.magicWarriorPnAmount)
+        .set(Profession.WIZARD, this.magicWizardPnAmount)
+      )
+      .set(Skill.STRENGTH, new Map()
+        .set(Profession.SCOUT, this.strengthScoutPnAmount)
+        .set(Profession.WARRIOR, this.strengthWarriorPnAmount)
+        .set(Profession.WIZARD, this.strengthWizardPnAmount)
+      )
+      .set(Skill.ONE_HANDED, new Map()
+        .set(Profession.SCOUT, this.oneHandedScoutPnAmount)
+        .set(Profession.WARRIOR, this.oneHandedWarriorPnAmount)
+        .set(Profession.WIZARD, this.oneHandedWizardPnAmount)
+      )
+      .set(Skill.TWO_HANDED, new Map()
+        .set(Profession.SCOUT, this.twoHandedScoutPnAmount)
+        .set(Profession.WARRIOR, this.twoHandedWarriorPnAmount)
+        .set(Profession.WIZARD, this.twoHandedWizardPnAmount)
+      )
+      .set(Skill.DISTANCE, new Map()
+        .set(Profession.SCOUT, this.distanceScoutPnAmount)
+        .set(Profession.WARRIOR, this.distanceWarriorPnAmount)
+        .set(Profession.WIZARD, this.distanceWizardPnAmount)
+      )
+      .set(Skill.SHIELDING, new Map()
+        .set(Profession.SCOUT, this.shieldingScoutPnAmount)
+        .set(Profession.WARRIOR, this.shieldingWarriorPnAmount)
+        .set(Profession.WIZARD, this.shieldingWizardPnAmount)
+      );
+  }
 
   private addPnAmountForSkillRange(array: number[], from: number, to: number, pnAmount: number): void {
     for (let i = from; i <= to; i++) {
