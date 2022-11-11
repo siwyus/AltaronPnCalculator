@@ -44,7 +44,7 @@
       wantedSkillLvl: form.get(FormFields.WANTED_SKILL_LVL)?.value ?? 0,
       skill: ('skills.' + form.get(FormFields.SKILL)?.value) | translate | lowercase
     } }}</p>
-    <p *ngIf="skillLvlYouCanReach">Przeznaczając {{ownedPnAmount}} będziesz wstanie awansować
+    <p *ngIf="ownedPnAmount && skillLvlYouCanReach">Przeznaczając {{ownedPnAmount}} będziesz wstanie awansować
       z {{form.get(FormFields.BASIC_SKILL_LVL)?.value}} poziomu na
       {{skillLvlYouCanReach}} poziom {{('skills.' + form.get(FormFields.SKILL)?.value) | translate | lowercase}}.</p>
   </div>
